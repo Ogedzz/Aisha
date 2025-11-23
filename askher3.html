@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be my Girlfriend? ❤️</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-50 min-h-screen p-6 flex flex-col items-center justify-start">
+
+  <!-- HER NAME IN PINK -->
+  <h1 class="text-4xl font-bold text-pink-600 text-center mb-10">
+    AISHA TEMITOPE AKINDELE (YSL) ❤️
+  </h1>
+
+  <!-- MAIN PAGE -->
+  <div id="mainPage" class="flex flex-col md:flex-row items-start justify-center space-y-6 md:space-y-0 md:space-x-10 w-full max-w-6xl">
+
+    <!-- LEFT SIDE: HEARTFELT MESSAGE -->
+    <div class="max-w-md text-gray-700 leading-relaxed">
+      <p class="mb-4">
+        It's been about three months give or take since we started talking, from the night when we were
+        both awake and I was bored and I wanted someone to talk to and you slept off on me after like
+        5 texts. I thought that was it ngl — you weren't going to text anymore or maybe we'd just be
+        those hi-hey mutuals every once in a while. But we kept talking and we grew closer with time.
+      </p>
+
+      <p class="mb-4">
+        I remember the first time I ever met you in person and I thought to myself,
+        <strong>"wow, she's so gorgeous"</strong>. And I'm sure you couldn't tell, but I was shy.
+      </p>
+
+      <p class="mb-4">
+        Fast-forward to today — I like the way you smile, I like the way you look, I like the way you
+        make an effort even when I'm down, I like how you carry yourself and always want to be better.
+        I look forward to growing with you and seeing you become the best version of yourself.
+      </p>
+
+      <p class="mb-4">
+        I’m grateful for the little time I've spent with you, and I cannot wait to spend more time
+        with you. So before you read the question on the right (which I know you already have), I just
+        wanted you to know that <strong>I love you.</strong>
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE: QUESTION BOX -->
+    <div class="bg-white p-8 rounded-xl shadow-xl w-full max-w-md">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-700">Will you be my girlfriend? ❤️</h2>
+
+      <form id="choiceForm" class="flex flex-col space-y-4">
+        <label class="flex items-center justify-start space-x-3">
+          <input type="radio" name="answer" value="yes" class="w-5 h-5">
+          <span class="text-gray-700 text-lg">Yes</span>
+        </label>
+
+        <label class="flex items-center justify-start space-x-3">
+          <input type="radio" name="answer" value="no" class="w-5 h-5">
+          <span class="text-gray-700 text-lg">No</span>
+        </label>
+
+        <button type="submit"
+          class="mt-4 bg-pink-500 text-white py-2 rounded-lg shadow hover:bg-pink-600 transition">
+          Submit
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+ <!-- YES PAGE -->
+<div id="yesPage" class="hidden min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center fixed inset-0 z-50"
+     style="background-image: url('yes-background.jpg');">
+  <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-2xl text-center p-6">
+    I love you ❤️<br>Cheers to forever.
+	
+  <!-- Spotify Embed -->
+  <div class="mt-6">
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2GSK9VfsKWpVOV6ZzKiMA4?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</div>
+
+
+  <!-- NO PAGE -->
+  <div id="noPage" class="hidden min-h-screen w-full flex items-center justify-center bg-cover bg-center fixed inset-0 z-50"
+       style="background-image: url('sad-face-sad.gif');">
+    <h1 class="text-4xl md:text-5xl font-bold text-white drop-shadow-2xl text-center p-6">
+      Try again… 😢
+    </h1>
+  </div>
+
+<script>
+  const form = document.getElementById("choiceForm");
+  const mainPage = document.getElementById("mainPage");
+  const yesPage = document.getElementById("yesPage");
+  const noPage = document.getElementById("noPage");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const answer = document.querySelector('input[name="answer"]:checked');
+
+    if (!answer) {
+      alert("Please select Yes or No 😊");
+      return;
+    }
+
+    if (answer.value === "yes") {
+      mainPage.classList.add("hidden");
+      yesPage.classList.remove("hidden");
+    } else {
+      mainPage.classList.add("hidden");
+      noPage.classList.remove("hidden");
+
+      setTimeout(() => {
+        noPage.classList.add("hidden");
+        mainPage.classList.remove("hidden");
+      }, 2500);
+    }
+  });
+</script>
+
+</body>
+</html>
